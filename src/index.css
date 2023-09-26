@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.category-nav-container{
+    draggable: true;
+}
+
+.category-nav-container::-webkit-scrollbar {
+    height: 4px;
+}
+
+/* Track */
+.category-nav-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.category-nav-container::-webkit-scrollbar-thumb {
+    background: #6493ff5f;
+}
+
+/* Handle on hover */
+.category-nav-container::-webkit-scrollbar-thumb:hover {
+    background: #8f8a8a;
+}
+
+.css-1nmdiq5-menu{
+    background-color: white !important;
+    max-height: 90px;
+    overflow-y: auto;
+}
