@@ -9,14 +9,9 @@ import { useParams } from "react-router-dom";
 const Home = () => {
     const news = useNewsPost();
     const [__news, __setNews] = useState([]);
-    const  {category_name} = useParams();
-    const  {tag_name} = useParams();
-    
-    //===============================================
-    useEffect(()=>{
-        __setNews(news)
-    },[news])
-    //===============================================
+    const { category_name } = useParams();
+    const { tag_name } = useParams();
+
     const handleNewsByCategory = (categoryName) => {
         if (categoryName == 'all') {
             __setNews(news);
@@ -25,14 +20,6 @@ const Home = () => {
             __setNews(filteredNewsByCateory);
         }
     }
-    useEffect(()=>{
-        if (category_name){
-            handleNewsByCategory(category_name);
-        }
-        else{
-            __setNews(news);
-        }
-    },[category_name])
     //===============================================
     const handleNewsByTags = (tagName) => {
         if (tagName == "all") {
@@ -42,15 +29,17 @@ const Home = () => {
             __setNews(filteredNewsByTag);
         }
     }
-    useEffect(()=>{
-        if (tag_name){
+    //===============================================
+    useEffect(() => {
+        if (category_name) {
+            handleNewsByCategory(category_name);
+        } else if (tag_name) {
             handleNewsByTags(tag_name);
-        }
-        else{
+        } else {
             __setNews(news);
         }
-    },[tag_name])
-    //===============================================
+    }, [category_name, tag_name, news]);
+
     const handleNewsSearch = e => {
         const searchString = e.target.value;
         const searchedNews = news.filter(_news => _news.title.toLowerCase().includes(searchString.toLowerCase()));
