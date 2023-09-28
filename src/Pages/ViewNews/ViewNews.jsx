@@ -229,7 +229,7 @@ const ViewNews = () => {
                         <p><span className='inline-block mr-2'>{interactions[0]?.totalViews} Views </span></p>
                         <Link to={`/category/${newNews.news_category_name.toLowerCase()}`} className='font-medium text-slate-600 bg-green-100 px-1 py-1 inline-block mt-3 mb-2 text-sm rounded-md'>{newNews.news_category_name}</Link>
 
-                        <p>{newNews.news_tags.split(',').map((nt, index) => (<span key={index} className='text-xs mr-2 bg-green-100 text-gray-600 px-2 py-[3px] rounded-full'>{nt}</span>))}</p>
+                        <p>{newNews.news_tags.split(',').map((nt, index) => (<Link to={`/tag/${nt}`} key={index} className='text-xs mr-2 bg-green-100 text-gray-600 px-2 py-[3px] rounded-full'>{nt}</Link>))}</p>
                     </div>
                 </div>
                 {
